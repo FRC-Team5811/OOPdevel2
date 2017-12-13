@@ -26,7 +26,7 @@ public class DriveTrain extends Subsystem {
 		motor3.set(-right);
 		
 	}
-	public static void stop() {//
+	public static void stop() {//////
 		motor0.set(0);
 		motor1.set(0);
 		motor2.set(0);
