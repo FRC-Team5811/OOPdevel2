@@ -38,5 +38,11 @@ public class DriveTrain extends Subsystem {
 		motor2.set(-y);
 		motor3.set(-y);
 	}
+	public static void arcadeDrive(double turn, double throttle) {
+		motor0.set(throttle - turn);
+		motor1.set(throttle - turn);
+		motor2.set(throttle + turn);
+		motor3.set(throttle + turn);
+	}
 	
 }

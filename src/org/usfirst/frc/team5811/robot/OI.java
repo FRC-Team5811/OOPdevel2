@@ -17,24 +17,30 @@ import org.usfirst.frc.team5811.robot.commands.TankDrive;
 public class OI {
 	static Joystick joy1 = new Joystick(0);
 	JoystickButton a = new JoystickButton(joy1, 2);
-	AxisButton leftaxis = new AxisButton(joy1, 1);
-	AxisButton rightaxis = new AxisButton(joy1, 3);
+	AxisButton leftJoyY = new AxisButton(joy1, 1);
+	AxisButton leftJoyX = new AxisButton(joy1, 2);
+	AxisButton rightJoyY = new AxisButton(joy1, 3);
+	AxisButton rightJoyX = new AxisButton(joy1, 4);
 	AxisButton righttrigger = new AxisButton(joy1, 5);
 	
 	
 	public OI() {
-		leftaxis.whileHeld(new TankDrive());
-		rightaxis.whileHeld(new TankDrive());
+		//leftaxis.whileHeld(new TankDrive());
+		//rightaxis.whileHeld(new TankDrive());
 		righttrigger.whileHeld(new Stop());
 	}
 	
-	public static double getLeftAxis() {
+	public static double getLeftY() {
 		return joy1.getRawAxis(1);
-		
 	}
-	
-	public static double getRightAxis() {
+	public static double getRightY() {
 		return joy1.getRawAxis(3);
+	}
+	public static double getLeftX(){
+		return joy1.getRawAxis(2);
+	}
+	public static double getRightX(){
+		return joy1.getRawAxis(4);
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
