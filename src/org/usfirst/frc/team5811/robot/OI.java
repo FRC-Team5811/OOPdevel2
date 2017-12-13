@@ -15,7 +15,7 @@ import org.usfirst.frc.team5811.robot.commands.TankDrive;
 
 
 public class OI {
-	Joystick joy1 = new Joystick(0);
+	static Joystick joy1 = new Joystick(0);
 	JoystickButton a = new JoystickButton(joy1, 2);
 	AxisButton leftaxis = new AxisButton(joy1, 1);
 	AxisButton rightaxis = new AxisButton(joy1, 3);
@@ -28,12 +28,12 @@ public class OI {
 		righttrigger.whileHeld(new ExampleCommand());
 	}
 	
-	public double getLeftAxis() {
+	public static double getLeftAxis() {
 		return joy1.getRawAxis(1);
 		
 	}
 	
-	public double getRightAxis() {
+	public static double getRightAxis() {
 		return joy1.getRawAxis(3);
 	}
 	//// CREATING BUTTONS
