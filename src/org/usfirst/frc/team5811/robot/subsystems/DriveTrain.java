@@ -43,6 +43,7 @@ public class DriveTrain extends Subsystem {
 		motor1.set(throttle + turn);
 		motor2.set(-(throttle - turn));
 		motor3.set(-(throttle - turn));
+		//arcade drive algor
 	}
 	
 }
