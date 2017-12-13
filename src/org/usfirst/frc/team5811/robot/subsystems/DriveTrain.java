@@ -7,7 +7,7 @@ import org.usfirst.frc.team5811.robot.RobotMap;
 /**
  *
  */
-public class ExampleSubsystem extends Subsystem {
+public class DriveTrain extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 	static Victor motor0 = RobotMap.motor0;

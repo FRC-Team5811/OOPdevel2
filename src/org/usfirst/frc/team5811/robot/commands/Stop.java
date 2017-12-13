@@ -3,13 +3,13 @@ package org.usfirst.frc.team5811.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team5811.robot.Robot;
-import org.usfirst.frc.team5811.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team5811.robot.subsystems.DriveTrain;
 
 /**
  *
  */
-public class ExampleCommand extends Command {
-	public ExampleCommand() {
+public class Stop extends Command {
+	public Stop() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.exampleSubsystem);
 	}
@@ -22,7 +22,7 @@ public class ExampleCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		ExampleSubsystem.stop();
+		DriveTrain.stop();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

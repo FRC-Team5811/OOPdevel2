@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
-import org.usfirst.frc.team5811.robot.commands.ExampleCommand;
+import org.usfirst.frc.team5811.robot.commands.Stop;
 import org.usfirst.frc.team5811.robot.commands.TankDrive;
 
 /**
@@ -25,7 +25,7 @@ public class OI {
 	public OI() {
 		leftaxis.whileHeld(new TankDrive());
 		rightaxis.whileHeld(new TankDrive());
-		righttrigger.whileHeld(new ExampleCommand());
+		righttrigger.whileHeld(new Stop());
 	}
 	
 	public static double getLeftAxis() {
