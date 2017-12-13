@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
+import org.usfirst.frc.team5811.robot.commands.ArcadeDrive;
 import org.usfirst.frc.team5811.robot.commands.Stop;
 import org.usfirst.frc.team5811.robot.commands.TankDrive;
 
@@ -18,9 +19,9 @@ public class OI {
 	static Joystick joy1 = new Joystick(0);
 	JoystickButton a = new JoystickButton(joy1, 2);
 	AxisButton leftJoyY = new AxisButton(joy1, 1);
-	AxisButton leftJoyX = new AxisButton(joy1, 2);
+	AxisButton leftJoyX = new AxisButton(joy1, 0);
 	AxisButton rightJoyY = new AxisButton(joy1, 3);
-	AxisButton rightJoyX = new AxisButton(joy1, 4);
+	AxisButton rightJoyX = new AxisButton(joy1, 2);
 	AxisButton righttrigger = new AxisButton(joy1, 5);
 	
 	
@@ -28,6 +29,10 @@ public class OI {
 		//leftaxis.whileHeld(new TankDrive());
 		//rightaxis.whileHeld(new TankDrive());
 		righttrigger.whileHeld(new Stop());
+		leftJoyY.whileHeld(new ArcadeDrive());
+		rightJoyX.whileHeld(new ArcadeDrive());
+		leftJoyX.whileHeld(new ArcadeDrive());
+		rightJoyY.whileHeld(new ArcadeDrive());
 	}
 	
 	public static double getLeftY() {
@@ -37,10 +42,10 @@ public class OI {
 		return joy1.getRawAxis(3);
 	}
 	public static double getLeftX(){
-		return joy1.getRawAxis(2);
+		return joy1.getRawAxis(0);
 	}
 	public static double getRightX(){
-		return joy1.getRawAxis(4);
+		return joy1.getRawAxis(2);
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
