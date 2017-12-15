@@ -16,9 +16,15 @@ public class LEDS extends Subsystem {
 	}
 	public static void red(){
 		toSend[0] = 3;
+		if(LEDArduino.writeBulk(toSend)){
+			System.out.println("didnt send");
+		}
 	}
 	public static void off(){
 		toSend[0] = 10;
+		if(LEDArduino.writeBulk(toSend)){
+			System.out.println("didnt send");
+		}
 	}
 
 }
