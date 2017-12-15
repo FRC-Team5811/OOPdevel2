@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.buttons.Trigger;
 import org.usfirst.frc.team5811.robot.commands.ArcadeDrive;
 import org.usfirst.frc.team5811.robot.commands.Stop;
 import org.usfirst.frc.team5811.robot.commands.TankDrive;
+import org.usfirst.frc.team5811.robot.commands.ledOFF;
+import org.usfirst.frc.team5811.robot.commands.ledRED;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -18,6 +20,7 @@ import org.usfirst.frc.team5811.robot.commands.TankDrive;
 public class OI {
 	static Joystick joy1 = new Joystick(0);
 	JoystickButton a = new JoystickButton(joy1, 2);
+	JoystickButton b = new JoystickButton(joy1, 3);
 	AxisButton leftJoyY = new AxisButton(joy1, 1);
 	AxisButton leftJoyX = new AxisButton(joy1, 0);
 	AxisButton rightJoyY = new AxisButton(joy1, 3);
@@ -33,6 +36,9 @@ public class OI {
 		rightJoyX.whileHeld(new ArcadeDrive());
 		leftJoyX.whileHeld(new ArcadeDrive());
 		rightJoyY.whileHeld(new ArcadeDrive());
+		a.whenPressed(new ledRED());
+		b.whenPressed(new ledOFF());
+		
 	}
 	
 	public static double getLeftY() {
