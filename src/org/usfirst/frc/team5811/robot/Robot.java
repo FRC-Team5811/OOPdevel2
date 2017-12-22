@@ -1,6 +1,8 @@
 
 package org.usfirst.frc.team5811.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -13,6 +15,8 @@ import org.usfirst.frc.team5811.robot.commands.Stop;
 import org.usfirst.frc.team5811.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5811.robot.subsystems.LEDS;
 import org.usfirst.frc.team5811.robot.subsystems.NavX;
+
+import com.kauailabs.navx.frc.AHRS;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,6 +31,7 @@ public class Robot extends IterativeRobot {
 	public static final LEDS ledsub = new LEDS();
 	public static final NavX navx = new NavX();
 	public static OI oi;
+	static AHRS navX = RobotMap.navx;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -39,6 +44,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser.addDefault("Default Auto", new Stop());
+		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 	}
@@ -101,16 +107,17 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		
 	}
 
 	/**
 	 * This function is called periodically during operator control
 	 */
-	
+	public static float thing;
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		new GrabNavX();
+	    thing = (float)navX.getAngle();
 	}
 
 	/**

@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class GrabNavX extends Command {
 	protected void execute(){
+		
 		NavX.grabValues();
 	}
 	@Override

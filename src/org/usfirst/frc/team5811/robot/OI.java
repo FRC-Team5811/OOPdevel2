@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
 import org.usfirst.frc.team5811.robot.commands.ArcadeDrive;
+import org.usfirst.frc.team5811.robot.commands.GrabNavX;
 import org.usfirst.frc.team5811.robot.commands.Stop;
 import org.usfirst.frc.team5811.robot.commands.TankDrive;
 import org.usfirst.frc.team5811.robot.commands.ledOFF;
@@ -25,19 +26,21 @@ public class OI {
 	AxisButton leftJoyX = new AxisButton(joy1, 0);
 	AxisButton rightJoyY = new AxisButton(joy1, 3);
 	AxisButton rightJoyX = new AxisButton(joy1, 2);
-	AxisButton righttrigger = new AxisButton(joy1, 5);
+	AxisButton righttrigger = new AxisButton(joy1,4);
 	
 	
 	public OI() {
 		//leftaxis.whileHeld(new TankDrive());
 		//rightaxis.whileHeld(new TankDrive());
-		righttrigger.whileHeld(new Stop());
+		
+		righttrigger.whileHeld(new GrabNavX());
 		leftJoyY.whileHeld(new ArcadeDrive());
 		rightJoyX.whileHeld(new ArcadeDrive());
 		leftJoyX.whileHeld(new ArcadeDrive());
 		rightJoyY.whileHeld(new ArcadeDrive());
 		a.whileHeld(new ledRED());
 		b.whileHeld(new ledOFF());
+		b.whenPressed(new GrabNavX());
 		
 	}
 	
