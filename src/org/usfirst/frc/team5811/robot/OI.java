@@ -36,8 +36,8 @@ public class OI {
 		rightJoyX.whileHeld(new ArcadeDrive());
 		leftJoyX.whileHeld(new ArcadeDrive());
 		rightJoyY.whileHeld(new ArcadeDrive());
-		a.whenPressed(new ledRED());
-		b.whenPressed(new ledOFF());
+		a.whileHeld(new ledRED());
+		b.whileHeld(new ledOFF());
 		
 	}
 	

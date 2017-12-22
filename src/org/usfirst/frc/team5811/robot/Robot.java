@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5811.robot.commands.Stop;
 import org.usfirst.frc.team5811.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team5811.robot.subsystems.LEDS;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -21,6 +22,7 @@ import org.usfirst.frc.team5811.robot.subsystems.DriveTrain;
 public class Robot extends IterativeRobot {
 
 	public static final DriveTrain exampleSubsystem = new DriveTrain();
+	public static final LEDS ledsub = new LEDS();
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -101,6 +103,7 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during operator control
 	 */
+	
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
